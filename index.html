@@ -1,0 +1,35 @@
+<svg width="2000" height="2000" viewBox="0 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glitch" x="0" y="0" width="2000" height="2000">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="turbulence" seed="5" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="100" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <rect id="box" width="2000" height="2000" />
+
+    <pattern id="lines" patternUnits="userSpaceOnUse" x="0" y="0" width="2000" height="4">
+      <rect x="0" y="0" width="2000" height="2" fill="rgba(255, 255, 255, 0.1)" />
+    </pattern>
+  </defs>
+
+  <g filter="url(#glitch)">
+    <rect x="0" y="0" width="2000" height="2000" fill="black" />
+    <rect x="0" y="0" width="2000" height="2000" fill="url(#lines)" />
+    <circle cx="50%" cy="50%" r="200" fill="none" stroke="white" stroke-width="5">
+      <animate attributeName="r" from="200" to="300" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="1" to="0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    <text x="50%" y="50%" font-size="50" font-family="monospace" text-anchor="middle" dominant-baseline="central"
+      fill="white">GLITCH</text>
+  </g>
+
+  <g>
+    <rect x="0" y="0" width="2000" height="2000" fill="url(#lines)" />
+    <circle cx="50%" cy="50%" r="200" fill="none" stroke="white" stroke-width="5" stroke-opacity="0.5">
+      <animate attributeName="r" from="200" to="300" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="stroke-opacity" from="0.5" to="0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    <text x="50%" y="50%" font-size="50" font-family="monospace" text-anchor="middle" dominant-baseline="central"
+      fill="white" opacity="0.5">GLITCH</text>
+  </g>
+</svg>
